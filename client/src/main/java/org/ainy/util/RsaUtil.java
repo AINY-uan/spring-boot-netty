@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @Author YUANDONG
- * @Description Rsa工具
- * @Date 2019-10-09 18:05
+ * @author YUANDONG
+ * @description Rsa工具
+ * @date 2019-10-09 18:05
  */
 public class RsaUtil {
 
