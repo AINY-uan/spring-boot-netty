@@ -53,13 +53,13 @@ public class ClientPoHandlerProto extends ChannelHandlerAdapter {
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent event = (IdleStateEvent) evt;
             if (event.state().equals(IdleState.READER_IDLE)) {
-                log.info("长期没收到服务器推送数据");
+                log.info("I haven't received server push data for a long time");
             } else if (event.state().equals(IdleState.WRITER_IDLE)) {
-                log.info("长期未向服务器发送数据");
+                log.info("Data has not been sent to the server for a long time");
                 // 发送心跳包
                 ctx.writeAndFlush("heart$_");
             } else if (event.state().equals(IdleState.ALL_IDLE)) {
-                log.info("ALL");
+                log.info("All");
             }
         }
     }

@@ -37,11 +37,10 @@ public class ServerHandler extends ChannelHandlerAdapter {
 //        log.info("Message {}", byteBuf.toString(CharsetUtil.UTF_8));
 //        ReferenceCountUtil.release(byteBuf);
 
-        log.info("Server ChannelRead......");
-
         ByteBuf byteBuf = (ByteBuf) msg;
 
         if (HEART.equals(byteBuf.toString(CharsetUtil.UTF_8))) {
+            log.info("Heartbeat information sent by the client is detected......");
             ByteBuf respByteBuf = Unpooled.copiedBuffer("heart$_".getBytes());
             ctx.write(respByteBuf);
         } else {

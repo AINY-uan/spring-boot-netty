@@ -21,7 +21,9 @@ public class ClientChannelInitializer extends ChannelInitializer<SocketChannel> 
     @Override
     protected void initChannel(SocketChannel channel) {
 
+        // 使用特殊字符解决粘包拆包问题
         ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
+        // 编码解码
         channel.pipeline().addLast("decoder", new DelimiterBasedFrameDecoder(4096, delimiter));
         channel.pipeline().addLast("encoder", new StringEncoder(CharsetUtil.UTF_8));
 
