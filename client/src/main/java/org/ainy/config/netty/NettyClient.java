@@ -21,7 +21,7 @@ import javax.annotation.PostConstruct;
  */
 @Slf4j
 @Component
-public class NettyCliet {
+public class NettyClient {
 
     @Value("${netty.url}")
     private String host;

@@ -37,12 +37,12 @@ public class ClientPoHandlerProto extends ChannelHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 
-        NettyCliet nettyCliet = (NettyCliet) SpringContextUtil.getBean(NettyCliet.class);
+        NettyClient nettyClient = (NettyClient) SpringContextUtil.getBean(NettyClient.class);
 
         log.error("oh...no...shit......");
         // 使用过程中断线重连
         final EventLoop eventLoop = ctx.channel().eventLoop();
-        eventLoop.schedule(nettyCliet::retryConnection, 1L, TimeUnit.SECONDS);
+        eventLoop.schedule(nettyClient::retryConnection, 1L, TimeUnit.SECONDS);
         super.channelInactive(ctx);
     }
 

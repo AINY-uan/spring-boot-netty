@@ -21,12 +21,12 @@ public class ConnectionListener implements ChannelFutureListener {
 
         if (!channelFuture.isSuccess()) {
 
-            NettyCliet nettyCliet = (NettyCliet) SpringContextUtil.getBean(NettyCliet.class);
+            NettyClient nettyClient = (NettyClient) SpringContextUtil.getBean(NettyClient.class);
 
             final EventLoop loop = channelFuture.channel().eventLoop();
             loop.schedule(() -> {
                 log.error("oh...no...shit");
-                nettyCliet.retryConnection();
+                nettyClient.retryConnection();
             }, 1L, TimeUnit.SECONDS);
         } else {
             log.info("oh...yeah...success");

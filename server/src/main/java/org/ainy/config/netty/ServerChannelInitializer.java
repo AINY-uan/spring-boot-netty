@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
 /**
  * @author 阿拉丁省油的灯
  * @date 2019-09-02 20:51
- * @description
+ * @description Netty服务端初始化
  */
 public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> {
 
